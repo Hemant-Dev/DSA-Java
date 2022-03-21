@@ -1,5 +1,7 @@
 package Arrays2;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class ArraysAssignment2 {
@@ -57,6 +59,57 @@ public class ArraysAssignment2 {
         }
     }
 
+    public static void rotateArray(int[] arr, int k)
+    {
+//        Temp Array approach
+        int [] rotArr = new int[arr.length];
+        int j =0;
+        for(int i=k; i<arr.length; i++)
+        {
+            rotArr[j] = arr[i];
+            j++;
+        }
+        for(int i=0; i<k; i++)
+        {
+            rotArr[j] = arr[i];
+            j++;
+        }
+        System.arraycopy(rotArr, 0, arr, 0, arr.length);
+
+    }
+
+    static void rotateArray2(int[] arr, int k)
+    {
+        int n = arr.length;
+        k = k % n;
+        int i, j, l, temp;
+        int g_c_d = gcd(k, n);
+        for(i=0; i< g_c_d; i++)
+        {
+            temp = arr[i];
+            j = i;
+            while (true)
+            {
+                l = j + k;
+                if(l >= n)
+                    l = l-n;
+                if(l == i)
+                    break;
+                arr[j] = arr[l];
+                j = l;
+            }
+            arr[j] = temp;
+        }
+    }
+
+    static int gcd(int a, int b)
+    {
+        if(b == 0)
+            return a;
+        else
+            return gcd(b, a%b);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -73,6 +126,21 @@ public class ArraysAssignment2 {
 //        }
 
 //        2.Rotate Array
+
+//        int t = sc.nextInt();
+//        while(t != 0)
+//        {
+//            int n = sc.nextInt();
+//            int[] arr = new int[n];
+//            takeInput(arr);
+//            int k = sc.nextInt();
+//            rotateArray2(arr, k);
+//            printArr(arr);
+//            System.out.println();
+//            t--;
+//        }
+
+//        3.Second Largest in the Array
 
 
 
