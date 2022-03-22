@@ -110,6 +110,49 @@ public class ArraysAssignment2 {
             return gcd(b, a%b);
     }
 
+    public static int secondLargestNum(int[] arr)
+    {
+        int n = arr.length;
+        int secondLargest = arr[0];
+        for(int i=0; i<2; i++)
+        {
+            int j = 0;
+            while (j < arr.length)
+            {
+                if(arr[i] >= secondLargest)
+                {
+                    secondLargest = arr[i];
+                }
+                j++;
+            }
+        }
+        return secondLargest;
+    }
+
+    public static int secondLargestNum2(int[] arr)
+    {
+        int n = arr.length;
+        int max = arr[0];
+        int secondMax = arr[1];
+        for(int i=1; i<n; i++)
+        {
+            if(arr[i] > max)
+            {
+                secondMax = max;
+                max = arr[i];
+            }
+            else if(arr[i] < max && arr[i] > secondMax)
+            {
+                secondMax = arr[i];
+            }
+        }
+        if(secondMax == max)
+        {
+            return Integer.MIN_VALUE;
+        }
+        return secondMax;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -141,7 +184,19 @@ public class ArraysAssignment2 {
 //        }
 
 //        3.Second Largest in the Array
+//        int t = sc.nextInt();
+//        while (t != 0)
+//        {
+//            int n = sc.nextInt();
+//            int[] arr = new int[n];
+//            takeInput(arr);
+//            int ans = secondLargestNum2(arr);
+//            System.out.println("Second Largest: " + ans);
+//            t--;
+//        }
 
+
+//        4.Check Array Rotation
 
 
     }
