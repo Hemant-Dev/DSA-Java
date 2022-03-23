@@ -192,6 +192,55 @@ public class ArraysAssignment2 {
         }
     }
 
+    public static int[] sumof2Arrays(int[] arr1, int n, int[] arr2, int m)
+    {
+        int max = Math.max(n, m);
+        int[] sum = new int[max + 1];
+        int i = max;
+        n--;
+        m--;
+        int add = 0;
+        int last = 0;
+        int carry = 0;
+        while(i > 0)
+        {
+            if(n < 0 && m >= 0)
+            {
+                add = arr2[m] + sum[i];
+                last = add%10;
+                carry = add / 10;
+                sum[i] = last;
+                sum[i-1] = carry;
+                i--;
+                m--;
+            }else if (m < 0 && n >= 0)
+            {
+                add = arr1[n] + sum[i];
+                last = add % 10;
+                carry = add / 10;
+                sum[i] = last;
+                sum[i-1] = carry;
+                i--;
+                n--;
+            }
+            else
+            {
+                add = arr1[n] + arr2[m] + sum[i];
+                last = add % 10;
+                carry = add / 10;
+                sum[i] = last;
+                sum[i-1] = carry;
+                i--;
+                n--;
+                m--;
+            }
+
+        }
+
+        return sum;
+    }
+
+
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -263,6 +312,19 @@ public class ArraysAssignment2 {
 //        }
 
 //        6.Sum of 2 Arrays
-
+        int t = sc.nextInt();
+        while (t != 0)
+        {
+            int n = sc.nextInt();
+            int[] arrN = new int[n];
+            takeInput(arrN);
+            int m = sc.nextInt();
+            int[] arrM = new int[m];
+            takeInput(arrM);
+            int[] ans = sumof2Arrays(arrN, n, arrM, m);
+            printArr(ans);
+            System.out.println();
+            t--;
+        }
     }
 }
