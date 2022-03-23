@@ -169,6 +169,30 @@ public class ArraysAssignment2 {
         return ans;
     }
 
+    //Sort012
+    public static void sort012(int[] arr, int n)
+    {
+        int lo = 0;
+        int hi = n-1;
+        int mid = 0;
+        while(mid <= hi)
+        {
+            switch (arr[mid]) {
+                case 0 -> {
+                    swap(arr, lo, mid);
+                    lo++;
+                    mid++;
+                }
+                case 1 -> mid++;
+                case 2 -> {
+                    swap(arr, hi, mid);
+                    hi--;
+                }
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -213,16 +237,32 @@ public class ArraysAssignment2 {
 
 
 //        4.Check Array Rotation
-        int t = sc.nextInt();
-        while(t != 0)
-        {
-            int n = sc.nextInt();
-            int[] arr = new int[n];
-            takeInput(arr);
-            int rot = checkRotation(arr);
-            System.out.println("Rotation: " + rot);
-            t--;
-        }
+//        int t = sc.nextInt();
+//        while(t != 0)
+//        {
+//            int n = sc.nextInt();
+//            int[] arr = new int[n];
+//            takeInput(arr);
+//            int rot = checkRotation(arr);
+//            System.out.println("Rotation: " + rot);
+//            t--;
+//        }
+
+//        5.Sort 0 1 2
+
+//        int t = sc.nextInt();
+//        while(t != 0)
+//        {
+//            int n = sc.nextInt();
+//            int [] arr = new int[n];
+//            takeInput(arr);
+//            sort012(arr, n);
+//            printArr(arr);
+//            System.out.println();
+//            t--;
+//        }
+
+//        6.Sum of 2 Arrays
 
     }
 }
